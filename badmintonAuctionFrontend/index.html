@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badminton Auction Application</title>
+    <link href="./style.css" rel="stylesheet">
+    <link rel="icon" 
+    type="image/png" 
+    href="./images/WBL_logo PP (1).png">
+
+</head>
+
+<body>
+    <header>
+    </header>
+    <div class="logo">
+        <img src="./images/WBL_logo.png" style="margin:20px 40px">
+        <a href="./player.html">Player</a>
+        <a class="auction-link" id="auctionLink" href="./auction.html">Auction</a>
+        <a href="./teamPlayers.html">Team</a>
+        <img src="./images/wavemaker_logo_login.png" height="40px" width="150px" style="margin: 20px 20px;">
+    </div>
+
+    <div class="img-div">
+
+        <img src="./images/smash-removebg-preview.png">
+    </div>
+    <div class="main-div">
+        <div class="count-down">
+            <div class="registration"> 
+                <h3 id="headline">REGISTRATION ENDS IN</h3> 
+                <div id="countdown"> 
+                    <ul style="padding-left: 0;"> 
+                        <li><span id="days"></span>days</li> 
+                        <li><span id="hours"></span>Hours</li> 
+                        <li><span id="minutes"></span>Minutes</li> 
+                        <li><span id="seconds"></span>Seconds</li> 
+                    </ul> 
+                </div> 
+                <div id="content" class="emoji"> 
+                    <span></span> 
+                    <span></span> 
+                    <span></span> 
+                </div> 
+            </div>
+            <h5 id="forh5">LEAGUE SCHEDULE</h5>
+            <div class="date-div">
+                <div class="date">
+                    <label>STARTS ON</label>
+                    <span>07-APRIL-2023</span>
+                </div>
+                <div class="date">
+                    <label>ENDS ON</label>
+                    <span>08-APRIL-2023</span>
+                </div>
+            </div>
+            <div class="reg-link">
+                <label>Click here to</label>
+                <a id="register-link" href="./register.html">REGISTER</a>
+            </div>
+        </div>
+        <div class="content-info">
+            <span id="forspan">WELCOME TO</span>
+            <label>WAVEMAKER BADMINTON LEAGUE</label>
+            <h3 style="margin: 1px 0 0 1px; color: #a9fcffb8;">Hi, Auction is on 6th April. Do register before the time ends.</h3>
+            <div>
+                <div class="cat-div">
+                    <span style="text-decoration: underline;">CATEGORY</span>
+                    <div class="cateogrey">
+                        <div class="men">
+                           <div class="sameline"><div class="point"></div><span>Mens Single</span></div> 
+                           <div class="sameline"><div class="point"></div><span>Mens Double</span></div> 
+                        </div>
+                        <div class="men">
+                            <div class="sameline"><div class="point"></div><span>Womens Single</span></div> 
+                            <div class="sameline"><div class="point"></div><span>Womens Double</span></div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <span><h4 id="totalteams" style="margin: 0;">Total Teams: <span id="teamcount">3</span></h4></span>
+            <span><h4 id="totalteams" style="margin: 4px 0 0 0;">Registered Players: <span id="count">0</span></h4></span>
+        </div>
+    </div>
+    <div class="caption">
+        <label><q>Let Your Racket Do The Talking</q></label>
+    </div>
+    <div id="auctiontoaster">Auction for registered players is completed</div>
+    <div id="toaster">Sorry, Player Registrations are Closed!</div>
+<footer>
+   
+</footer>
+<script src="script.js"></script>
+<!-- Registration countdown script -->
+<script>
+  (function () {
+    const second = 1000,
+    minute = second * 60,
+    hour = minute * 60,
+    day = hour * 24;
+    let today = new Date(),
+    dd = String(today.getDate()).padStart(2, "0"),
+    mm = String(today.getMonth() + 1).padStart(2, "0"),
+    yyyy = today.getFullYear(),
+    nextYear = yyyy + 1,
+    dayMonth = "04/28/",
+    registrationEnds = dayMonth + yyyy;
+    today = mm + "/" + dd + "/" + yyyy;
+    if (today > registrationEnds) {
+    registrationEnds = dayMonth + nextYear;
+    }
+    //end
+    const countDown = new Date(registrationEnds).getTime(),
+    x = setInterval(function() {
+    const now = new Date().getTime(),
+    distance = countDown - now;
+    document.getElementById("days").innerText = Math.floor(distance / (day)),
+    document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
+    document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute)),
+    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+    //do something later when timer ends
+    if (distance < 0) {
+    document.getElementById("headline").innerText = "Registrations are closed!";
+    document.getElementById("countdown").style.display = "none";
+    document.getElementById("content").style.display = "block";
+    // making Regiser and Auction button and link to disable when timer ends
+    var auctionlink = document.getElementById("auctionLink");
+    auctionlink.removeAttribute("href");
+    auctionlink.onclick = function() { 
+      var auctiontoaster = document.getElementById("auctiontoaster");
+      auctiontoaster.classList.add("show");
+      setTimeout(function() {
+        auctiontoaster.classList.remove("show");
+      }, 3000);
+  }
+    var registerLink = document.getElementById("register-link");
+    registerLink.removeAttribute("href");
+    registerLink.onclick = function() { 
+      var toaster = document.getElementById("toaster");
+      toaster.classList.add("show");
+      setTimeout(function() {
+        toaster.classList.remove("show");
+      }, 3000);
+  };
+    clearInterval(x);
+    }
+    //seconds
+    }, 0)
+    }());
+
+    // players count
+      fetch("http://localhost:8080/badmintonAuction/player/display").then((objectData)=>{
+        return objectData.json();
+    }).then((completedata)=>{
+        completedata.reverse()
+        const countPlayers = completedata.length;
+        completedata.map((values)=>{
+        });
+        document.getElementById("count").innerHTML = countPlayers;
+    }).catch((err)=>{
+        console.log(err);
+    })
+
+// restricting from access
+var expectedCode = "2948";
+function checkAccess(event) {
+  event.preventDefault(); 
+  var code = prompt("Enter the 4-digit access code:");
+  code.type = "password";
+  if (code === expectedCode) {
+    window.location.href = "auction.html";
+  } else {
+    alert("Entered Incorrect code. Please try again.");
+  }
+  }
+  var link = document.getElementById("auctionLink");
+  link.addEventListener("click", checkAccess);
+</script>
+</html>

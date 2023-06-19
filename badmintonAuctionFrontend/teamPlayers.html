@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/36a84585f6.js" crossorigin="anonymous"></script>
+        <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Team Players</title>
+    <link rel="stylesheet" href="./teamPlayers.css">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="row header">
+            <div class="col-sm-6 logo-header" onclick="window.location.href='index.html'">
+                <img src="./images/WBL_logo.png" alt="logo">
+            </div>
+            <div class="col-sm-6 nav-links">
+                <ul>
+                    <li><a href="./player.html">PLAYERS</a></li>
+                    <li><a id="auction-link" href="./auction.html">AUCTION</a></li>
+                    <li><a href="./teamPlayers.html">TEAMS</a></li>
+                    <!-- <li><a href="./register.html">REGISTER</a></li> -->
+                </ul>
+            </div>
+          </div>
+    </header>
+    <section>
+        <div style="margin-right: 0;" class="row">
+            <div class="col-md-3 col-md-pull-9">
+                <div id="team-button1">
+                    <button class="auto-click" onclick="autoclick()" type="submit" id="teamid1" value="1"><img src="./images/tigersTeam.png" alt="tiger logo"></button>
+                </div>
+                <div id="team-button2">
+                    <button  type="submit" id="teamid2" value="2"><img src="./images/wolfTeam.png" alt="wolf logo"></button>
+                </div>
+                <div id="team-button3">
+                    <button  type="submit" id="teamid3" value="3"><img src="./images/spiesTeam.png" alt="spies logo"></button>
+                </div>
+            </div>
+            <!-- Displaying playerlist and showing when the div id is clicked -->
+            <div class="col-md-9 col-md-push-3" id="main-list">
+                <div class="row" id="players-list">
+                    <!-- <div style="background-color: blueviolet;" class="col-sm-4">
+                        <h3 style = "margin-top:0;">Player Name:</h3>
+                        <h4>Base Price:</h4>
+                        <h4>Sold Price:</h4>
+                    </div>
+                    <div style="background-color: rgb(23, 207, 72);" class="col-sm-4">Img2</div>
+                    <div style="background-color: rgb(185, 20, 64);" class="col-sm-4">Img3</div> -->
+                </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <script src="./teamPlayers.js"></script>
+    <!-- Auto clicking the team1 button on page reload -->
+    <script>
+     window.onload=function(){
+      document.getElementById("teamid1").click();
+    };
+    // function autolick(){
+    //  }
+    </script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    </script>
+</body>
+</html>

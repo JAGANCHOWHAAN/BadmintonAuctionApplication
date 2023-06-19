@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/36a84585f6.js" crossorigin="anonymous"></script>
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<title>Players Page</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="./player.css">
+</head>
+<body>
+  <header>
+    <div class="row header">
+        <div class="col-sm-6 logo-header" onclick="window.location.href='index.html'">
+            <img src="./images/WBL_logo.png" alt="logo">
+        </div>
+        <div class="col-sm-6 nav-links">
+            <ul>
+                <li><a href="./player.html">PLAYERS</a></li>
+                <li><a id="auction-link" href="./auction.html">AUCTION</a></li>
+                <li><a href="./teamPlayers.html">TEAMS</a></li>
+                <!-- <li><a href="./register.html">REGISTER</a></li> -->
+            </ul>
+        </div>
+      </div>
+</header>
+    <div style="margin-right: 0;" class="row">
+      <div class="col-sm-4 filter">
+        <form action="" id="filterform">
+        <div style="margin-left: 14px;" class="form-group">
+            <select style="background: white;" class="form-control dropdown" name="skilllevel" id="skilllevel" required>
+              <option class="placeholder" selected disabled value="">Select Skill Level</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+            </select>
+            <button style="background-color: white;" type="submit"><i class="fas fa-filter"></i></button>
+        </div>
+      </form>
+      </div>
+      <div class="col-sm-4 list">
+        <h4>Registered Players List</h4>
+      </div>
+      <div class="col-sm-4 stars">
+        <p>Beginner:⭐</p>
+        <p>Intermediate:⭐⭐⭐</p>
+        <p>Advanced:⭐⭐⭐⭐⭐</p>
+      </div>
+  </div>
+    <div id="cards">
+      <!-- <div class="card">
+        <div class="row edit">
+          <button onclick="playerPopup()"><i class="fa-solid fa-pen-to-square"></i></button>
+        </div>
+        <img src="./images/badmintonPlayer.png" alt="">
+        <p>PlayerName:</p>
+        <p id="skilllevel">Skill Level:</p>
+      </div> -->
+    </div>
+
+
+<!-- Players edit Popup  -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h5>Updating Player Details</h2>
+    <form id="updateform">
+      <label for="playerid">PlayerID:</label> <br>
+      <input type="number" name="playerid" id="playerid" readonly>
+      <!-- <label for="gender">Gender:</label> <br>
+      <input type="text" name="gender" id="gender"> -->
+      <!-- <label for="name">Player Name:</label> <br>
+      <input type="text" name="isSold" id="isSold"> -->
+
+      <label for="name">Player Name:</label> <br>
+      <input required type="text" id="playername" name="playername"><br>
+
+      <label for="email">Email:</label><br>
+      <input required type="email" id="emailid" name="emailid"><br>
+
+      <label for="skill-level">Skill Level:</label><br>
+      <select required id="skilllevel" name="skilllevel">
+        <option id="skilllevel" value="Beginner">Beginner</option>
+        <option id="skilllevel" value="Intermediate">Intermediate</option>
+        <option id="skilllevel" value="Advanced">Advanced</option>
+      </select><br>
+
+      <label for="tshirt-size">T-shirt Size:</label><br>
+      <select required id="tshirtsize" name="tshirtsize">
+        <option id="tshirtsize" value="S">Small</option>
+        <option id="tshirtsize" value="M">Medium</option>
+        <option id="tshirtsize" value="L">Large</option>
+        <option id="tshirtsize" value="XL">X-Large</option>
+      </select><br>
+      <button id="savedetails" class="save" type="submit">Save</button>
+      <button id="save-btn" class="cancel" type="button" onclick="hidePopup()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+      <script src="./player.js"></script>
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

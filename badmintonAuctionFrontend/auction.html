@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1  .0">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>Auction Page</title>
+    <link rel="stylesheet" href="auction.css">
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <u>
+  <header>
+    <div class="row header">
+        <div class="col-sm-6 logo-header" onclick="window.location.href='index.html'">
+            <img src="./images/WBL_logo.png" alt="logo">
+        </div>
+        <div class="col-sm-6 nav-links">
+            <ul>
+                <li><a href="./player.html">PLAYERS</a></li>
+                <li id="auctionbtn"><a id="auction" href="./auction.html">AUCTION</a></li>
+                <li><a href="./teamPlayers.html">TEAMS</a></li>
+                <!-- <li><a href="./register.html">REGISTER</a></li> -->
+            </ul>
+        </div>
+      </div>
+</header></u>
+<div style="margin-left: 0; margin-right: 0;" class="row">
+  <div class="col-xs-6">
+    <button class="random" id="randombutton" title="Click on the button to get a random player" onclick="getRandomPlayer()">Get Player</button>
+      <!-- <button class="random" id="previous">Previous</button>
+      <button class="random" id="next">Next</button> -->
+    <div id="playerDetails"></div>
+    <img class="sold-image" src="./images/out-of-stock.png" alt="sold out" style="display: none;">
+  </div>
+  <div class="col-xs-6">
+    <div class="card">
+      <div class="card-header">
+        <div class="text-header">BIDDING</div>
+      </div>
+    <div class="card-body">
+      <form action="" id="bidding-form" onsubmit="displayFunction()" method="post">
+        <div class="form-group" id="bidding-team">
+            <label for="bidding-team">Choose Team:</label>
+              <label class="radio-inline">
+                  <input type="radio" name="teamid" id="bidding-team" value="1" required="required">TIGERS
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="teamid" id="bidding-team" value="2" required="required">WOLF
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="teamid" id="bidding-team" value="3" required="required">SPIES
+              </label>
+        </div>
+      <div class="form-group">
+        <label for="playerid">Enter PlayerID:</label>
+        <input style="background-color: white;" required="" class="form-control" name="playerid" id="playerid" value="playerId" type="text" readonly>
+      </div>
+      <div class="form-group">
+        <label for="baseprice">Enter Base price:</label>
+        <input style="background-color: white;" required="" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.keyCode !== 187" class="form-control" name="baseprice" min="100000" max="1000000" step="50000" value="basePrice" id="baseprice" type="number">
+      </div>
+      <div class="form-group">
+        <label for="soldprice">Enter Sold price:</label>
+        <input style="background-color: white;" required="" onkeydown="return event.keyCode !== 69 && event.keyCode !== 189 && event.keyCode !== 187" class="form-control" name="soldprice" min="100000" max="5000000" step="50000" value="soldPrice" id="soldprice" type="number">
+      </div>
+       <input type="submit" class="btn" name="buy" id="bid-btn" value="Fix Bid">    
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+<section>
+  <h3 id="text">Teams Overview</h3>
+  <div class="display-teams">
+    <div style="margin-right: 0;" class="row">
+      <!-- <h3 id="text">Teams Overview</h3> -->
+      <div class="col-sm-4">
+        <div class="team-details">
+          <img style="opacity: 0.9;" src="./images/tigersTeam.png" alt="Team1">
+          <h4>Team Name: <span style="color: rgb(216, 64, 8);">TIGERS</span></h4>
+          <h4>Captain: <span style="color: rgb(216, 64, 8);">Sagar</span></h4>
+          <h4>Players Count: <span id="team1count" style="color: rgb(216, 64, 8);">0</span></h4>
+          <!-- <h4>Team ID: <span style="color: rgb(216, 64, 8);">1</span></h4> -->
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="team-details">
+          <img src="./images/wolfTeam.png" alt="Team2">
+          
+          <h4>Team Name: <span style="color: rgb(13, 13, 179);">WOLF</span></h4>
+          <h4>Captain: <span style="color: rgb(13, 13, 179);">Shah</span></h4>
+          <h4>Players Count: <span id="team2count" style="color: rgb(13, 13, 179);">0</span></h4>
+          <!-- <h4>Team ID: <span style="color: rgb(13, 13, 179);">2</span></h4> -->
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="team-details">
+          <img src="./images/spiesTeam.png" alt="Team3">
+          
+          <h4>Team Name: <span style="color: rgb(6, 6, 134);">SPIES</span></h4>
+          <h4>Captain: <span style="color: rgb(6, 6, 134);">Sundeep</span></h4>
+          <h4>Players Count: <span id="team3count" style="color: rgb(6, 6, 134);">0</span></h4>
+          <!-- <h4>Team ID: <span style="color: rgb(6, 6, 134);">3</span></h4> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dynamic-teams"> 
+  </div>
+  <div id="toast"></div>
+</section>
+    <script src="./auction.js"></script>
+    <script src="./teamPlayers.js"></script>
+    <script>
+       function displayFunction() {
+        const toast = document.createElement('div');
+  toast.classList.add('successtoast');
+  toast.textContent = 'Player Sold Out Successfully and added to the respective team';
+  document.body.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.classList.add('hide');
+    setTimeout(() => {
+      toast.remove();
+      document.querySelector('#bidding-form').reset();
+    }, 300);
+  }, 2000);
+      }
+      </script>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

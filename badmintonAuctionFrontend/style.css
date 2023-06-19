@@ -1,0 +1,311 @@
+*{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+  /* background-image: url('./login_background.svg'); */
+  background-image: url('./images/homepagebg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.logo img{
+  height: 50px;
+  cursor: pointer;
+}
+.logo li{
+  list-style: none;
+  display: contents;
+}
+.img-div{
+  display: flex;
+  justify-content: flex-end;
+}
+.main-div{
+  position: absolute;
+  bottom: 17%;
+  left: 4.2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.count-down{
+
+  width: 400px;
+  height: 320px;
+  background:white;
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 10px;
+}
+.count-down h6{
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  margin: 30px;
+}
+
+#myTimer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  word-spacing: 55px;
+}
+
+#myTimer h4{
+margin: 5px;
+}
+
+.logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo a{
+  text-align: center;
+  background-color: #36466413;
+  border-radius: 4px;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+  text-transform: uppercase;
+}
+.logo a:after{
+  content: '\00bb';
+  position: absolute;
+  margin-left: 18px;
+  opacity: 0;
+  top: 25%;
+  right: 10%;
+  transition: 0.5s;
+
+}
+.logo a:hover::after{
+  opacity: 1;
+  right: 0;
+}
+#forh5{
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.date-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+
+.date{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-radius: 6px;
+  padding: 10px;
+
+}
+.date label{
+  font-size: 1rem;
+  font-weight: 600;
+  color: blue;
+  letter-spacing: 2px;
+}
+.date span{
+font-size: .9rem;
+font-weight: 500;
+color: #1229a9;
+}
+
+.reg-link{
+  display: flex;
+ align-items: center;
+ justify-content: center;
+ margin-top: 30PX;
+ 
+}
+.reg-link label{
+  text-decoration: underline;
+}
+.reg-link a{
+  padding: 10px;
+  background:#00399a;
+  color: white;
+  text-decoration: none;
+  padding-left: 19px;
+  border-radius: 45px;
+  margin-left: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.reg-link a:after{
+  content: '\00bb';
+  position: relative;
+  opacity: 0;
+  top: 23%;
+  left: 9%;
+  right: 15%;
+  transition: 0.5s;
+
+}
+.reg-link:hover a:after {
+  opacity: 2;
+  right: 0;
+}
+
+.content-info{
+  display: flex;
+  flex-direction: column;
+ margin-left: 5rem;  
+}
+.cat-div span{
+  font-weight: 600;
+  color: orange;
+  font-size: 1.2rem;
+  
+}
+#forspan{
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.content-info label{
+  color: rgb(241, 241, 246);
+  font-size: 2rem;
+  font-weight: 700;
+}
+.cat-div{
+  width: 23rem;
+  margin-top: 30px;
+  padding: 20px 20px 20px 0px;
+}
+.point{
+  width: 10px;
+  height: 10px;
+  background:white;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 20px;
+}
+.men{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.cateogrey{
+  margin-top: 15px;
+display: flex;
+justify-content: space-between;
+}
+.caption{
+  position:absolute;
+  left: 38%;
+  bottom: 5%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.registration h3{
+  font-weight: 1rem;
+  text-transform: uppercase; 
+  text-align: center;
+  margin-bottom: 0;
+  }
+.registration li { 
+  display: inline-block; 
+  font-size: 10px; 
+  list-style-type: none; 
+  padding: 6px;
+  text-transform: uppercase; 
+}
+#countdown ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+
+.registration li span { 
+  display: block; 
+  font-size: 30px;
+  color: #1229a9;
+}
+.registration .emoji { 
+  display: none;
+  padding: 1rem; 
+  }
+.registration.emoji { 
+  display: none;
+  padding: 1rem; 
+  }
+
+  #toaster {
+    margin-top: 2px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0433ed;
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  
+  #toaster.show {
+    opacity: 10;
+  }
+  #auctiontoaster {
+    margin-top: 2px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0433ed;
+    color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  #auctiontoaster.show{
+    opacity: 10;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    #toaster {
+      font-size: 14px;
+    }
+  }
+
+  #totalteams{
+    color: white;
+    font-weight: 700;
+  }
+  #teamcount{
+    color: orange;
+  }
+  #count{
+    color: orange;
+  }
+  
